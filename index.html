@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoseTECH Consulting, Inc.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        header {
+            background-color: #0C5826;
+            padding: 2rem 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        main {
+            padding: 3rem 1rem;
+        }
+
+        .contact-section {
+            background-color: transparent;
+            padding: 2rem;
+            border-radius: 0;
+            box-shadow: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section h3 {
+            font-size: 1.5rem;
+            color: #8b5605;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin: 20px 0 5px;
+            color: #333333;
+            font-weight: 400;
+        }
+        
+        .contact-section .form-group label {
+            color: #333333;
+        }
+
+        .name-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .name-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name-field input {
+            margin-bottom: 0.25rem;
+        }
+
+        .name-field small {
+            font-size: 0.875rem;
+            color: #666666;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            background-color: #0C5826;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: auto;
+            min-width: 200px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #083d1a;
+        }
+
+        button[type="submit"]:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 0;
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            display: none;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 0;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .name-fields {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#content" class="skip-to-content">Skip to content</a>
+    
+    <header>
+        <div class="container">
+            <h1>RoseTECH Consulting, Inc.</h1>
+            <h2>GLP Training and Consulting</h2>
+        </div>
+    </header>
+
+    <main id="content">
+        <div class="container">
+            <div class="contact-section">
+                <h3>Contact us for information</h3>
+                
+                <div class="success-message" id="successMessage">
+                    Thank you for your message! We'll get back to you soon.
+                </div>
+                
+                <div class="error-message" id="errorMessage">
+                    There was an error submitting your form. Please try again.
+                </div>
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <div class="name-fields">
+                            <div class="name-field">
+                                <input type="text" id="firstName" name="firstName" required>
+                                <small>First</small>
+                            </div>
+                            <div class="name-field">
+                                <input type="text" id="lastName" name="lastName" required>
+                                <small>Last</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="organization">Organization</label>
+                        <input type="text" id="organization" name="organization" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="_replyto" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitButton = form.querySelector('button[type="submit"]');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Disable submit button
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            
+            // Simulate submission
+            setTimeout(() => {
+                successMessage.style.display = 'block';
+                form.reset();
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit';
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 800);
+        });
+    </script>
+</body>
+</html>
